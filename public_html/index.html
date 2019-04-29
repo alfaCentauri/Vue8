@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+    Created on : 31/01/2019, 11:07:00 AM
+    Author     : Ricardo Presilla.
+    Licencia GNU.
+-->
+<html>
+    <head>
+        <title>Vue.js</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>        
+        <link href="css/estilos.css" rel="stylesheet" /> 
+    </head>
+    <body>
+        <div id="">
+            <ul id="example-2">
+              <li v-for="(item, index) in items">
+                {{ parentMessage }} - {{ index }} - {{ item.message }}
+              </li>
+            </ul>
+        </div>
+        <div id="ejemplo3">
+            <div v-for="item of Materiales">
+                Orden# {{ item.idO }}, ID material {{ item.idM }}, Nombre: {{ item.nombre }}, Marca: {{ item.marca }}, Cantidad: {{ item.cantidad }}
+            </div>
+        </div>
+        <p>Usando un objeto para mostrar el contenido con v-for:</p>
+        <ul id="v-for-object" class="demo">
+            <li v-for="value in object">
+              {{ value }}
+            </li>
+        </ul>
+        <div id="ejemplo5">
+        <p>Usando un argumento de clave:</p>
+            <div v-for="(value, key) in object">
+                {{ key }}: {{ value }}
+            </div>
+        </div>
+        <div id="ejemplo6">
+        <p>Usando un argumento de clave y un indice:</p>
+            <div v-for="(value, key, index) in object">
+                {{ index }}. {{ key }}: {{ value }}
+            </div>
+        </div>
+        <div id="ejemplo7">
+            <div v-for="item in Materiales" :key="item.id">
+                <!-- contenido -->
+                {{ item }}
+            </div>
+        </div>
+        <div id="ejemplo8">
+            Nombre {{ userProfile.name }}, <div v-if="userProfile.age"> Edad {{ userProfile.age }} </div>
+        </div>
+        <div id="ejemplo9">
+            <li v-for="n in evenNumbers">{{ n }}</li>
+        </div>
+        <div id="ejemplo10">
+            <li v-for="n in even(numbers)">{{ n }}</li>
+        </div>
+        <div id="ejemplo11">
+            <span v-for="n in 10">{{ n }} </span>
+        </div>
+        <div id="ejemplo12">
+            <ul>
+                <template v-for="item in items">
+                  <li>{{ item.message }}</li>
+                  <li class="divider" role="presentation"></li>
+                </template>
+            </ul>
+        </div>
+        <div id="ejemplo13">
+            <p>
+                Mostrar los elementos de la lista que cumplan con el párametro.
+            </p>
+            <li v-for="item in items" v-if="item.bandera">
+                {{ item.texto }}
+            </li>
+        </div>
+        <div id="ejemplo14">
+            <p>
+                Mostrar toda la lista siempre que tenga algun elemento guardado.
+            </p>
+            <ul v-if="items.length">
+              <li v-for="item in items">
+                {{ item.texto }}
+              </li>
+            </ul>
+            <p v-else>No todos left!</p>
+        </div>
+        <script src="js/ciclos.js" type="text/javascript"></script>
+    </body>
+</html>
